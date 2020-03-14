@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: order-service
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://myeureka:965448460@47.56.181.87:10000/eureka/
+

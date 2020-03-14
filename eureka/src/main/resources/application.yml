@@ -1,0 +1,32 @@
+server:
+  # 项目端口号
+  port: 10000
+  #ssl:
+    # 开启 SSL 认证
+    #enabled: true
+    # 证书别名
+    #key-alias: eurekaserver
+    # 证书存放路径
+    #key-store: classpath:EurekaServer.p12
+    # 证书密码
+    #key-store-password: 123456
+    # 存储类型
+    #key-store-type: PKCS12
+
+spring:
+  # 应用名称
+  application:
+    name: eureka-server
+  # 开启安全控制  导入spring-boot-starter-security 默认开启
+  security:
+    user:
+      # 用户名
+      name: myeureka
+      # 密码
+      password: 965448460
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
