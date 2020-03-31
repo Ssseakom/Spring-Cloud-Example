@@ -1,8 +1,6 @@
-server:
-  port: 8081
 spring:
   application:
-    name: order-service
+    name: item-service
   #RDS
   datasource:
     url: jdbc:mysql://8vb0797i464v6o5evto.mysql.zhangbei.rds.aliyuncs.com/MyRds?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
@@ -20,6 +18,10 @@ spring:
     port: 5672
     username: lzp
     password: 123456
+    template:
+      retry:
+        enabled: true
+        initial-interval: 2s
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
